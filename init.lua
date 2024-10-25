@@ -27,8 +27,7 @@ end
 
 function M:peek()
     local args = {
-        "-a",
-        "--oneline",
+        "--all",
         "--color=always",
         "--icons=always",
         "--group-directories-first",
@@ -37,7 +36,8 @@ function M:peek()
     }
 
     if is_tree_view_mode() then
-        table.insert(args, "-T")
+        table.insert(args, "--tree")
+        table.insert(args, "--level=2")
     end
 
     local child = Command("eza")
